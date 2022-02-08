@@ -1,0 +1,98 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: "kotlin-parcelize"
+
+def keystorePropertiesFile = rootProject.file("keystore.properties");
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId "com.niekam.smartmeter"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 10
+        versionName "1.1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        config {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.google.android.gms:play-services-ads:18.3.0'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+
+    implementation "io.insert-koin:koin-android:$koin_version"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation 'androidx.preference:preference:1.1.0'
+
+
+    kapt "androidx.room:room-compiler:$room_version"
+
+    implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "com.jakewharton.rxbinding2:rxbinding:2.1.1"
+    implementation "com.jakewharton.rxbinding2:rxbinding-kotlin:2.0.0"
+
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-3'
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation "io.insert-koin:koin-android:$koin_version"
+    implementation "io.insert-koin:koin-androidx-viewmodel:$koin_version"
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation "com.afollestad.material-dialogs:core:$md_dialog_version"
+    implementation "com.afollestad.material-dialogs:input:$md_dialog_version"
+    implementation "com.afollestad.material-dialogs:datetime:$md_dialog_version"
+
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "androidx.appcompat:appcompat:1.1.0"
+    implementation "androidx.core:core-ktx:$androidX_version"
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation("com.natpryce:hamkrest:1.7.0.0")
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}

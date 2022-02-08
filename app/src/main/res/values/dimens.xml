@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_small">4dp</dimen>
+    <dimen name="margin_medium">6dp</dimen>
+    <dimen name="margin_default">12dp</dimen>
+    <dimen name="margin_large">18dp</dimen>
+    <dimen name="margin_xlarge">24dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="icon_size">32dp</dimen>
+    <dimen name="list_item_height">110dp</dimen>
+    <dimen name="item_details_image_size">160dp</dimen>
+    <dimen name="spinner_text_size">18sp</dimen>
+
+    <dimen name="card_height">180dp</dimen>
+
+    <dimen name="radius">6dp</dimen>
+    <dimen name="empty_view_icon_size">120dp</dimen>
+
+    <item name="transition_zoom_in_max" format="float" type="dimen">1.05</item>
+    <item name="transition_zoom_out_max" format="float" type="dimen">0.95</item>
+</resources>

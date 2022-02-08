@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/metersOverviewFragment">
+
+    <fragment
+        android:id="@+id/metersOverviewFragment"
+        android:name="com.niekam.smartmeter.fragment.overview.MetersOverviewFragment"
+        android:label="meters_overview_fragment"
+        tools:layout="@layout/meters_overview_fragment">
+        <action
+            android:id="@+id/action_open_details"
+            app:destination="@id/meterDetails"
+            app:enterAnim="@anim/zoom_in"
+            app:exitAnim="@anim/zoom_out_fade_out"
+            app:popEnterAnim="@anim/zoom_in"
+            app:popExitAnim="@anim/zoom_out_fade_out">
+            <argument
+                android:name="meter"
+                app:argType="com.niekam.smartmeter.data.model.Meter" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/meterDetails"
+        android:name="com.niekam.smartmeter.fragment.details.MeterDetailsFragment"
+        android:label="meter_details_fragment"
+        tools:layout="@layout/meter_details_fragment">
+        <action
+            android:id="@+id/action_open_history"
+            app:destination="@id/meterHistoryFragment"
+            app:enterAnim="@anim/zoom_in"
+            app:exitAnim="@anim/zoom_out_fade_out"
+            app:popEnterAnim="@anim/zoom_in"
+            app:popExitAnim="@anim/zoom_out_fade_out">
+            <argument
+                android:name="meter"
+                app:argType="com.niekam.smartmeter.data.model.Meter" />
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/meterHistoryFragment"
+        android:name="com.niekam.smartmeter.fragment.history.MeterHistoryFragment"
+        android:label="meter_history_fragment"
+        tools:layout="@layout/meter_history_fragment" />
+</navigation>

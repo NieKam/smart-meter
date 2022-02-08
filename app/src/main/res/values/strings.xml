@@ -1,0 +1,72 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="defaultTitle">Smart Top Up</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_import">Load imported data</string>
+    <string name="action_export">Backup all data</string>
+    <string name="add">Add</string>
+    <string name="addMeasurement">Tap here to add measurements and get approximated balance and usage</string>
+    <string name="addMoreMeasurements">(Add one more later)</string>
+    <string name="apprFunds">Approximated balance</string>
+    <string name="averageUsage">%1$s / day</string>
+    <string name="balance">Balance</string>
+    <string name="cancel" tools:ignore="ButtonCase">cancel</string>
+    <string name="cannotDisplayNotification">You cannot get notification if there is less than two measurements</string>
+    <string name="channel_description">Notification reminds you to check your balance if funds are going to be consumed</string>
+    <string name="channel_name">Meter App balance reminder</string>
+    <string name="currencyTitle">Default currency symbol</string>
+    <string name="delete">Delete</string>
+    <string name="edit">Edit</string>
+    <string name="emptyFieldError">Field cannot be empty</string>
+    <string name="futureTimeWarning">Time cannot be set to the future</string>
+    <string name="history">History</string>
+    <string name="historyTitle">History for: %1$s</string>
+    <string name="lastMeasure">Last Measure: %1$s ago</string>
+    <string name="legend">Average Usage</string>
+    <string name="messages_header">Currency</string>
+    <string name="minutes">%1$d min</string>
+    <string name="momentAgo">Moment ago</string>
+    <string name="newMeasurement">New measurement</string>
+    <string name="newMeterTitle">Add new meter</string>
+    <string name="noData">No data available</string>
+    <string name="noMeasurements">Add your meter measurements to see approximated balance</string>
+    <string name="noMeters">You don\'t have any meters.\n Tap on plus button below to add your first meter</string>
+    <string name="notificationConfirmation">You will get notification one day before balance get used</string>
+    <string name="notificationContent">Approximated balance on %1$s is low and will expire tomorrow.</string>
+    <string name="notificationTitle">Check your meter balance</string>
+    <string name="ok">OK</string>
+    <string name="reply_title">Default reply action</string>
+    <string name="time">Date and time:</string>
+    <string name="title">Title</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="tooShortTimestamp">Wait at least one hour between measurements</string>
+    <string name="topUp">Top Up</string>
+    <string name="topUpExtraHint">If you top up meter in the mean time. Include this value here</string>
+    <string name="topUpLabel">Top up: %1$s</string>
+    <string name="unknown">Unknown error occurred</string>
+    <string name="update">Update</string>
+    <string name="value">Value</string>
+    <string name="valueBigger">New balance cannot be bigger. Did you top up in the meantime?</string>
+    <string name="notification_content_desc">Tap here to enable or disable notification if balance will get used</string>
+    <string name="main_fab_content_desc">Add new meter</string>
+    <string name="file_saved">All data successfully exported</string>
+    <string name="warning">Warning ☠️</string>
+    <string name="import_warning_msg">This operation will erase all your existing data!\n\nAre you sure want to import data?</string>
+    <string name="malformedJsonError">Imported JSON is malformed. Cannot import data!</string>
+
+    <plurals name="daysLeft">
+        <item quantity="one">%d day left</item>
+        <item quantity="other">%d days left</item>
+    </plurals>
+
+    <plurals name="days">
+        <item quantity="one">%d day</item>
+        <item quantity="other">%d days</item>
+    </plurals>
+
+    <plurals name="hours">
+        <item quantity="one">%d hour</item>
+        <item quantity="other">%d hours</item>
+    </plurals>
+    <string name="title_sharing">Sharing</string>
+</resources>

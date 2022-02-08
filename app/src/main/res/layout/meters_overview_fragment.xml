@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.niekam.smartmeter.fragment.overview.MetersOverviewViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.overview.MetersOverviewFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_today"
+            style="@style/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_default"
+            android:drawableStart="@drawable/ic_today"
+            android:drawablePadding="@dimen/margin_default"
+            android:gravity="center"
+            android:text="@{viewModel.todayDate}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="24/12/2019" />
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_default"
+            android:background="@drawable/ad_background"
+            android:visibility="gone"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/banner_ad_unit_id"
+            app:layout_constraintTop_toBottomOf="@id/tv_today" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_meters"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:scrollbars="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/adView"
+            tools:listitem="@layout/meter_item_layout" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_noMeters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_default"
+            android:layout_marginTop="@dimen/margin_large"
+            android:background="@drawable/rounded_corners_background"
+            android:gravity="center"
+            android:padding="@dimen/margin_default"
+            android:text="@string/noMeters"
+            android:textColor="@color/md_white_1000"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/adView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

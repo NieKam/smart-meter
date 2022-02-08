@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.niekam.smartmeter.fragment.details.MeterDetailsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".fragment.details.MeterDetailsFragment"
+            tools:ignore="UnusedAttribute">
+
+            <com.niekam.smartmeter.view.ElapsedTimeView
+                android:id="@+id/tv_lastMeasureDays"
+                style="@style/days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Last measure 10 days ago" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_lastMeasureDate"
+                style="@style/days.small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                app:layout_constraintStart_toStartOf="@id/tv_lastMeasureDays"
+                app:layout_constraintTop_toBottomOf="@id/tv_lastMeasureDays"
+                tools:text="28.02.2019 (19:00)" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_fundsLabel"
+                style="@style/shadowText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_default"
+                android:text="@string/apprFunds"
+                app:layout_constraintStart_toStartOf="@id/tv_lastMeasureDays"
+                app:layout_constraintTop_toBottomOf="@id/tv_lastMeasureDate" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_funds"
+                style="@style/fundsText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
+                app:layout_constraintStart_toStartOf="@id/tv_fundsLabel"
+                app:layout_constraintTop_toBottomOf="@id/tv_fundsLabel"
+                tools:text="€30.0" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_remainingTimeDate"
+                style="@style/days"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginBottom="@dimen/margin_large"
+                app:layout_constraintStart_toStartOf="@id/tv_funds"
+                app:layout_constraintTop_toBottomOf="@id/tv_funds"
+                tools:text="~2 days left (22.04.2019)" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_addMore"
+                style="@style/small_warning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default"
+                android:text="@string/addMoreMeasurements"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tv_funds"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tv_funds"
+                app:layout_constraintTop_toTopOf="@id/tv_funds" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_averageUsagePerDay"
+                style="@style/shadowText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default"
+                app:layout_constraintBottom_toBottomOf="@id/tv_funds"
+                app:layout_constraintStart_toEndOf="@id/tv_funds"
+                app:layout_constraintTop_toTopOf="@id/tv_funds"
+                tools:text="Average usage per day €2.01" />
+
+            <Button
+                android:id="@+id/btn_showHistory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:background="@drawable/rounded_corners_background"
+                android:drawableStart="@drawable/ic_history"
+                android:drawablePadding="@dimen/margin_small"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="@string/history"
+                app:layout_constraintEnd_toStartOf="@id/btn_addMeasurement"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_remainingTimeDate" />
+
+            <Button
+                android:id="@+id/btn_addMeasurement"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:background="@drawable/rounded_corners_background"
+                android:drawableStart="@drawable/ic_add"
+                android:drawablePadding="@dimen/margin_small"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:text="@string/newMeasurement"
+                app:layout_constraintBottom_toBottomOf="@id/btn_showHistory"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_showHistory"
+                app:layout_constraintTop_toTopOf="@id/btn_showHistory" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_noMeasurements"
+                style="@style/warning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_default"
+                android:gravity="center"
+                android:text="@string/noMeasurements"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/btn_showHistory" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/mp_chart"
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/btn_showHistory"
+                binding:measurements_data="@{viewModel.measurements}" />
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/last_measure_views_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tv_lastMeasureDate,tv_remainingTimeDate,tv_lastMeasureDays,tv_funds,tv_fundsLabel,tv_averageUsagePerDay" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

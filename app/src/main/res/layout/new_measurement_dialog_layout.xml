@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.niekam.smartmeter.view.MoneyInput
+        android:id="@+id/mi_value"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        app:input_hint="@string/balance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.niekam.smartmeter.view.MoneyInput
+        android:id="@+id/mi_topup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:input_hint="@string/topUp"
+        app:layout_constraintEnd_toEndOf="@id/mi_value"
+        app:layout_constraintStart_toStartOf="@id/mi_value"
+        app:layout_constraintTop_toBottomOf="@id/mi_value" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_extraHint"
+        style="@style/shadowTextSmall"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:gravity="center"
+        android:text="@string/topUpExtraHint"
+        app:layout_constraintEnd_toEndOf="@id/mi_topup"
+        app:layout_constraintStart_toStartOf="@id/mi_topup"
+        app:layout_constraintTop_toBottomOf="@id/mi_topup" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_timeHint"
+        style="@style/shadowText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_large"
+        android:text="@string/time"
+        app:layout_constraintStart_toStartOf="@id/mi_value"
+        app:layout_constraintTop_toBottomOf="@id/tv_extraHint" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_time"
+        style="@style/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="@dimen/margin_default"
+        app:layout_constraintBottom_toBottomOf="@id/tv_timeHint"
+        app:layout_constraintEnd_toEndOf="@id/mi_value"
+        app:layout_constraintTop_toTopOf="@id/tv_timeHint" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_futureTimeWarning"
+        style="@style/warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_default"
+        android:gravity="center"
+        android:text="@string/futureTimeWarning"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tv_timeHint" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

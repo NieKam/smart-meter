@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.niekam.smartmeter.fragment.history.HistoryItemViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:paddingStart="@dimen/margin_default"
+        android:paddingEnd="@dimen/margin_default">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_balance"
+            style="@style/history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_small"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            binding:money_text="@{viewModel.measurement.value}"
+            tools:text="€40.2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_date"
+            style="@style/history.date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_small"
+            app:layout_constraintEnd_toEndOf="@id/tv_topup"
+            app:layout_constraintTop_toBottomOf="@id/tv_topup"
+            binding:date_and_time="@{viewModel.measurement.timestamp}"
+            tools:text="04/04/2019 19:32" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_topup"
+            style="@style/history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_small"
+            android:text="@{@string/topUpLabel(viewModel.topUp)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Top Up: €15.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

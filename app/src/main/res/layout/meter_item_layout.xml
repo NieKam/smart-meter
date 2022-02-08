@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:binding="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.niekam.smartmeter.fragment.overview.MeterItemViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        app:cardCornerRadius="@dimen/radius"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_meterTitle"
+                style="@style/textTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/margin_large"
+                android:paddingTop="@dimen/margin_medium"
+                android:paddingEnd="@dimen/margin_small"
+                android:paddingBottom="@dimen/margin_medium"
+                android:text="@{viewModel.meter.meter.name}"
+                android:textAllCaps="true"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Gas" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:contentDescription="@string/notification_content_desc"
+                android:padding="@dimen/margin_small"
+                app:layout_constraintBottom_toTopOf="@id/health_bar"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                binding:notification_icon="@{viewModel.meter.meter.showNotification}" />
+
+            <com.niekam.smartmeter.view.HealthBar
+                android:id="@+id/health_bar"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/green_drawable"
+                app:layout_constraintTop_toBottomOf="@id/tv_meterTitle"
+                binding:remaining_time="@{viewModel.remainingTimeMs}" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_fundsLabel"
+                style="@style/shadowText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:text="@string/apprFunds"
+                android:visibility="@{viewModel.showBalance ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/health_bar" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_funds"
+                style="@style/fundsText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginBottom="@dimen/margin_large"
+                android:text="@{viewModel.remainingFundsString}"
+                android:visibility="@{viewModel.showBalance ? View.VISIBLE : View.GONE}"
+                app:layout_constraintTop_toBottomOf="@id/tv_fundsLabel"
+                tools:text="€ 22.4" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_remainingTimeDate"
+                style="@style/days"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_default"
+                android:layout_marginEnd="@dimen/margin_default"
+                android:layout_marginBottom="@dimen/margin_default"
+                android:visibility="@{viewModel.showMeasurement ? View.VISIBLE : View.GONE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_funds"
+                binding:remaining_time="@{viewModel.remainingTimeMs}"
+                tools:text="~2 days left (22.04.2019)" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_explanation"
+                style="@style/warning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_large"
+                android:gravity="center"
+                android:text="@string/addMeasurement"
+                android:contentDescription="@string/addMeasurement"
+                android:visibility="@{viewModel.showMeasurement ? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_funds" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
