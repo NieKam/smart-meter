@@ -13,12 +13,12 @@ Technology stack:
 * MPAndroidChart -> [github](https://github.com/PhilJay/MPAndroidChart)
 * LeakCanary -> [github](https://github.com/square/leakcanary)
 * Timber -> [github](https://github.com/JakeWharton/timber)
-
-![Screenshot 1](https://github.com/NieKam/android-apps-opensource/blob/master/SmartMeter/promo/Screenshot_1573724059.png)
-![Screenshot 2](https://github.com/NieKam/android-apps-opensource/blob/master/SmartMeter/promo/Screenshot_1573724113.png)
-![Screenshot 3](https://github.com/NieKam/android-apps-opensource/blob/master/SmartMeter/promo/Screenshot_1573724117.png)
-![Screenshot 4](https://github.com/NieKam/android-apps-opensource/blob/master/SmartMeter/promo/Screenshot_1573724280.png)
-![Screenshot 5](https://github.com/NieKam/android-apps-opensource/blob/master/SmartMeter/promo/Screenshot_1573724322.png)
+https://raw.githubusercontent.com/NieKam/smart-meter/main/promo/Screenshot_1573724059.png
+![Screenshot 1](https://raw.githubusercontent.com/NieKam/smart-meter/main/promo/Screenshot_1573724059.png)
+![Screenshot 2](https://raw.githubusercontent.com/NieKam/smart-meter/main/promo/Screenshot_1573724113.png)
+![Screenshot 3](https://raw.githubusercontent.com/NieKam/smart-meter/main/promo/Screenshot_1573724117.png)
+![Screenshot 4](https://raw.githubusercontent.com/NieKam/smart-meter/main/promo/Screenshot_1573724280.png)
+![Screenshot 5](https://raw.githubusercontent.com/NieKam/smart-meter/main/promo/Screenshot_1573724322.png)
 
 Feel free to review my code, send feedback or sugestions.
 
